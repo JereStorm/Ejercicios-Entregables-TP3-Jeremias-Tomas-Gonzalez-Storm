@@ -1,7 +1,55 @@
-.container{
+.body_container{
     display: flex;
     flex-direction: column;
     gap: 80px;
     align-items: center;
     height: 100vh;
-  }
+    font-family: Arial, Helvetica, sans-serif;
+}
+.clock_container{
+    height: 100%;
+    padding-bottom: 100px;
+}
+.cyrcle_container{
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+.cyrcle{
+    background-image: url(/img/relojcss.png);
+    background-position: center ;
+    background-size: cover;
+    position: absolute;
+    border-radius: 50%;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.hand {
+    top: 50%;
+    right: 51%;
+    height: 3px;
+    background: #333333;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 6px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.hand.seg_hand{
+    width: 150px;
+    background: #cb0d20;
+    height: 2px;
+}
+.hand.min_hand{
+    width: 100px;
+}
+.hand.hour_hand{
+    width: 50px;
+}

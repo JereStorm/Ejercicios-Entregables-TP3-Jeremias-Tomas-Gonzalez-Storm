@@ -1,0 +1,19 @@
+.body_container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#poster{
+    width: 400px;
+    height: 300px;
+    transition: box-shadow .1s, transform ;
+    background: url(/img/image_card.jpg) no-repeat center;
+    background-size: cover;
+}
+
+#poster:hover {
+    box-shadow: 0px 0px 50px rgba(0,0,01);
+}

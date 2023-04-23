@@ -16,13 +16,16 @@ const centerClock = {
 
 let radius = 250;
 
-
 let currentDate = new Date();
 
 let counter_seg = currentDate.getSeconds();
 let counter_hour = currentDate.getHours();
-let counter_min = currentDate.getMinutes();
 
+if (counter_hour > 12) {
+    counter_hour = counter_hour - 12;
+}
+
+let counter_min = currentDate.getMinutes();
 
 //Traslada la posición(0,0) al centro del reloj.
 ctx.translate(centerClock.x, centerClock.y);
@@ -35,6 +38,10 @@ ctx.textBaseline = "middle";
 ctx.textAlign = "center";
 ctx.lineWidth = 2;
 
+setInterval(() => {
+    main();
+    counter_seg++;
+}, 1000)
 
 /**
  * Cuando la pagina carga...
@@ -42,30 +49,22 @@ ctx.lineWidth = 2;
 function main() {
     ctx.clearRect(0 - centerClock.x, 0 - centerClock.y, canvasWidth, canvasHeight);
 
-
-
     if (counter_seg == 60) {
         counter_min++;
-        counter_seg = 1;
+        counter_seg = 0;
     }
     if (counter_min == 60) {
         counter_min = 0;
-        counter_seg = 1;
+        counter_seg = 0;
         counter_hour++;
     }
     if (counter_hour == 24) {
         counter_hour = 0;
         counter_min = 0;
-        counter_seg = 1;
+        counter_seg = 0;
     }
     drawClock();
     console.log(counter_hour, counter_min, counter_seg);
-
-    setTimeout(() => {
-        main();
-        counter_seg++;
-    }, 1000)
-
 }
 
 /**
@@ -83,50 +82,31 @@ function drawClock() {
     ctx.arc(0, 0, 5, 0, 2 * Math.PI);
     ctx.fill();
 
-
     drawHourNumbers();
     drawMin();
 
-    drawClockSecHand();
-    drawClockMinHand();
-    drawClockHourHand();
+    let ang_seg = counter_seg * Math.PI / 30;
+    let ang_min = counter_min * Math.PI / 30;
+    let ang_hour = counter_hour * Math.PI / 6;
+
+    drawClockHand("red", ang_seg, radius);
+    drawClockHand("black", ang_min, radius * 0.5, 2);
+    drawClockHand("black", ang_hour, radius * 0.3, 4);
 
 }
 
+function drawClockHand(color, ang, length, posHand = 1) {
 
-
-function drawClockSecHand() {
-    let ang = counter_seg * Math.PI / 30;
     ctx.rotate(ang);
-    ctx.translate(0, -radius);
-    drawHand("red", radius)
+
+    // radius/poshand para situar las agujas en el centro
+    ctx.translate(0, -radius / posHand);
+    drawHand(color, length);
     ctx.rotate(-ang);
     ctx.rotate(ang);
-    ctx.translate(0, radius);
+    ctx.translate(0, radius / posHand);
     ctx.rotate(-ang);
 }
-function drawClockMinHand() {
-    let ang = counter_min * Math.PI / 30;
-    ctx.rotate(ang);
-    ctx.translate(0, -radius / 2);
-    drawHand("black", radius * 0.5)
-    ctx.rotate(-ang);
-    ctx.rotate(ang);
-    ctx.translate(0, radius / 2);
-    ctx.rotate(-ang);
-}
-function drawClockHourHand() {
-    let ang = counter_hour * Math.PI / 6;
-    ctx.rotate(ang);
-    ctx.translate(0, -radius / 4);
-    drawHand("black", radius * 0.3);
-
-    ctx.rotate(-ang);
-    ctx.rotate(ang);
-    ctx.translate(0, radius / 4);
-    ctx.rotate(-ang);
-}
-
 
 function drawHand(color, length) {
     ctx.beginPath();
@@ -137,7 +117,6 @@ function drawHand(color, length) {
 }
 
 function drawLineHour() {
-
     ctx.beginPath();
     ctx.moveTo(0, -35);
     ctx.lineTo(0, -25);
@@ -145,10 +124,9 @@ function drawLineHour() {
 }
 
 function drawLineMin() {
-
     ctx.beginPath();
-    ctx.moveTo(0, -24);
-    ctx.lineTo(0, -18);
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, 6);
     ctx.stroke();
 }
 
@@ -176,7 +154,7 @@ function drawHourNumbers() {
 function drawMin() {
     let num;
     let ang;
-    let radius_min = radius * 0.90;
+    let radius_min = radius;
     for (num = 1; num <= CANT_MIN; num++) {
         ang = num * Math.PI / 30;
 
