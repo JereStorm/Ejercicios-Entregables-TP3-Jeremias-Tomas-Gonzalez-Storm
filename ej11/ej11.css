@@ -1,3 +1,9 @@
+body{
+    background-image: url(/img/fondo.png);
+    background-size: cover;
+    color: bisque;
+}
+
 .body_container{
     text-align: center;
     display: flex;
@@ -6,14 +12,49 @@
     align-items: center;
 }
 
-#poster{
-    width: 400px;
-    height: 300px;
-    transition: box-shadow .1s, transform ;
-    background: url(/img/image_card.jpg) no-repeat center;
-    background-size: cover;
+.cards_container{
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
-#poster:hover {
+.card{
+    width: 200px;
+    height: 400px;
+    border: 2px solid black;
+    border-top: 0px;
+    border-radius: 25px;
+    transition: box-shadow .2s, transform .2s;
+}
+
+.ancho_basto{
+    background: url(/img/ancho_de_basto.jpg) no-repeat center;
+    background-size: cover;
+    rotate: -15deg;
+}
+.ancho_espada{
+    background: url(/img/ancho_de_espadas.png) no-repeat center;
+    background-size: cover;
+    
+}
+.siete_espada{
+    background: url(/img/7_de_espadas.png) no-repeat center;
+    background-size: cover;
+    rotate: 15deg;
+}
+
+.card:hover {
     box-shadow: 0px 0px 50px rgba(0,0,01);
+    z-index: 1;
+}
+
+.data_container{
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgba(0, 0, 0, 0.608);
+    color: beige;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }

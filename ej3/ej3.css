@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #333333;
 }
 .clock_container{
     height: 100%;
@@ -19,6 +20,7 @@
     align-items: center ;
 }
 .cyrcle{
+    background-color: #6f6f6f;
     background-image: url(/img/relojcss.png);
     background-position: center ;
     background-size: cover;
@@ -52,4 +54,15 @@
 }
 .hand.hour_hand{
     width: 50px;
+}
+
+.data_container{
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgba(0, 0, 0, 0.608);
+    color: beige;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }

@@ -1,5 +1,7 @@
 body{
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(30, 30, 30);
+  color: beige;
 }
 
 .canvas {
@@ -14,9 +16,17 @@ body{
   align-items: center;
   height: 100vh;
 }
+
+.lista_container{
+  min-height: 70vh;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lista{
   position: relative;
-  top: 0%;
   display: flex;
   flex-direction: row;
 }
@@ -50,12 +60,9 @@ color: black;
 }
 .lista li:hover p {
 color: transparent;
-
 }
 .lista li:hover{
-  background-color: transparent;
   transform: scale(1.5);
-
 }
 .lista li:active{
   transform: translate(0px, -50px);
@@ -66,26 +73,31 @@ color: transparent;
 
 @keyframes topToHalf {
   0% {
-      top: 100%;
+      left: -50%;
   }
   100%{
-      top: 0%;
+      left: 0%;
   }
 
 }
-.bg-ej2,.bg-ej3{
+.bg-ej2,.bg-ej3,.bg-ej11{
+  background-color: aquamarine;
   transition: all 2s ease;
 }
 .bg-ej2:hover{
-  background-color: transparent;
   background-image: url(img/ej2.jpeg);
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .bg-ej3:hover{
-  background-color: transparent;
   background-image: url(img/ej3.jpeg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.bg-ej11:hover{
+  background-image: url(img/ej11.jpeg);
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -97,4 +109,15 @@ color: transparent;
 }
 .active p { 
 color: aliceblue;
+}
+
+.data_container{
+  border-radius: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgba(0, 0, 0, 0.608);
+  color: beige;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
