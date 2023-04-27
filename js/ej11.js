@@ -1,17 +1,20 @@
 "use strict";
 
-const cards = document.getElementsByClassName("card");
+const cards = document.querySelectorAll(".card");
 
 const height = cards[0].clientHeight;
 const width = cards[0].clientWidth;
 
 
+/**
+ * Funcion por defecto que escucha los elementos del DOM pertinentes
+ * y preparar los eventos de su comportamiento
+ */
 function main() {
 
     for (const element of cards) {
         element.addEventListener('mouseover', () => {
-            console.log('estoy arriba de la card');
-            element.addEventListener('mousemove', (e) => cardEfect(e, element));
+            element.addEventListener('mousemove', (e) => cardEfect(e));
             element.addEventListener('mouseout', (e) => {
                 element.removeEventListener('mousemove', cardEfect);
                 cardEfectOut(e)
@@ -19,6 +22,13 @@ function main() {
         });
     };
 }
+
+/**
+ * Funcion encargada de resetear los estilos del elemento segun corresponda
+ * 
+ * Params recibidos: 
+ * - e: Event
+ */
 function cardEfectOut(e) {
 
     let card = e.target;
@@ -32,6 +42,13 @@ function cardEfectOut(e) {
     card.style.transform = style_defect;
 }
 
+/**
+ * Funcion encargada de aplicar los efectos necesarios para animar el elemento del DOM correspondiente
+ * en funcion de la posicion actual del mouse
+ * 
+ * Paramentros recibidos:
+ * - e: Event
+ */
 function cardEfect(e) {
     let card = e.target;
     const { layerX, layerY } = e;

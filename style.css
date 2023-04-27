@@ -35,10 +35,8 @@ body{
   position: relative;
   top: 100%;
   list-style: none;
-  border: 3px solid black;
   padding: 20px;
   margin: 0 50px;
-  background-color: rgb(32, 207, 213);
   background-position: center center;
   border-radius: 50%;
   width: 150px;
@@ -52,7 +50,11 @@ body{
 }
 .lista a {
 text-decoration: none;
-color: black;
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
 }
 
 .lista li p{
@@ -81,19 +83,20 @@ color: transparent;
 
 }
 .bg-ej2,.bg-ej3,.bg-ej11{
-  background-color: aquamarine;
+  background-color: black;
+  border: 1px solid;
   transition: all 2s ease;
 }
 .bg-ej2:hover{
   background-image: url(img/ej2.jpeg);
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .bg-ej3:hover{
   background-image: url(img/ej3.jpeg);
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .bg-ej11:hover{
@@ -114,8 +117,8 @@ color: aliceblue;
 .data_container{
   border-radius: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgba(0, 0, 0, 0.608);
   color: beige;
+  text-decoration: underline;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -22,19 +22,17 @@
 .cyrcle{
     background-color: #6f6f6f;
     background-image: url(/img/relojcss.png);
-    background-position: center ;
-    background-size: cover;
+    background-position: center center;
+    background-size: contain;
     position: absolute;
     border-radius: 50%;
     width: 450px;
     height: 450px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
 }
 .hand {
     top: 50%;
-    right: 51%;
+    right: 50%;
     height: 3px;
     background: #333333;
     position: absolute;
@@ -48,12 +46,15 @@
     width: 150px;
     background: #cb0d20;
     height: 2px;
+    animation: rotateHand 60s linear;
 }
 .hand.min_hand{
     width: 100px;
+    animation: rotateHand 3600s linear;
 }
 .hand.hour_hand{
     width: 50px;
+    animation: rotateHand 86400s linear;
 }
 
 .data_container{
@@ -65,4 +66,13 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+}
+
+@keyframes rotateHand {
+from{
+    rotate: 0deg;
+}
+    to {
+        rotate: 360deg;
+    }
 }
