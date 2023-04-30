@@ -5,7 +5,6 @@ const cards = document.querySelectorAll(".card");
 const height = cards[0].clientHeight;
 const width = cards[0].clientWidth;
 
-
 /**
  * Funcion por defecto que escucha los elementos del DOM pertinentes
  * y preparar los eventos de su comportamiento
