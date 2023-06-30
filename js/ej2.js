@@ -12,7 +12,7 @@ function setDate() {
     let min = currentDate.getMinutes();
     let hour = currentDate.getHours();
 
-    const ang_seg = ((seg / 60) * 360) + 90;
+    let ang_seg = ((seg / 60) * 360) + 90;
 
     let ang_min = ((min / 60) * 360) + ((seg / 60) * 6) + 90;
 

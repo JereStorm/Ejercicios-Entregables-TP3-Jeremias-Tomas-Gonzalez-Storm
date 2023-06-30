@@ -7,7 +7,7 @@ const width = cards[0].clientWidth;
 
 /**
  * Funcion por defecto que escucha los elementos del DOM pertinentes
- * y preparar los eventos de su comportamiento
+ * y prepara los eventos de su comportamiento
  */
 function main() {
 
